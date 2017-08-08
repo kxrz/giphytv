@@ -21,4 +21,4 @@ Everyone loves GIFs. Imagine a purfect world where you could download a zip, cha
 Find the project right here: [http://kxrz.me/GiphyTV/](http://kxrz.me/GiphyTV/)
 
 This website and project are not associated with Giphy in any way. I just love them for their GIFs.
-![Giphy logo](http://kxrz.me/GiphyTV/images/Poweredby_100px-Black_VertLogo.png)
+![Giphy logo](http://kxrz.me/GiphyTV/images/Poweredby_100px-White_VertLogo.png)
