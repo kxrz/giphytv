@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+	Original Template: Lens by HTML5 UP
+	Custom by @kxrz | www.kxrz.me
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Run your own GiphyTV!!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="GiphyTV is a free and powerful fun webpage!">
+		<meta property="og:site_name" content="Sometimes, all we need is a website full of strange things, like GIFs.">
+		<meta property="og:url" content="http://kxrz.me/GiphyTV/">
+		<meta property="og:image" content="http://kxrz.me/GiphyTV/images/og.jpg">
+		<meta property="article:author" content="https://www.facebook.com/florentbertiaux">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@kxrz">
+		<meta name="twitter:title" content="GiphyTV is a free and powerful fun webpage!">
+		<meta name="twitter:description" content="Sometimes, all we need is a website full of strange things, like GIFs.">
+		<meta name="twitter:image" content="http://kxrz.me/GiphyTV/images/og.jpg">
+		<link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./favicon/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./favicon/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+		<link rel="manifest" href="./favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<style>
+		#viewer {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-image: url(./img/splash.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+		</style>
+	</head>
+	<body class="is-loading-0 is-loading-1 is-loading-2">
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html"/ id="giphyTVUsername">username</a></h1>
+						<p id="giphyTVDescription">description</p>
+					</header>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Another stupid project by</li><li><a href="http://kxrz.me">kxrz</a>.</li>
+							<li><a href="http://kxrz.me/GiphyTV/" target="_blank">Grab your copy here</a>.</li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="config.js"></script>
+			    <script>
+			    var interval;
+
+			    function slideshow() {
+			        $.support.cors = true;
+			        $.getJSON("https://api.giphy.com/v1/gifs/random?tag=" + giphyTVSearch + "&rating=pg-13&api_key=" + giphyAPIKey, null, function(response) {
+			            var id = response.data.id;
+			            // Grab Orginal Sized webp
+			            $.getJSON("https://api.giphy.com/v1/gifs/" + id + "?api_key=" + giphyAPIKey, null, function(response) {
+			              var webp_src = response.data && response.data.images && response.data.images.original && response.data.images.original.webp;
+			              if (!webp_src) {
+			                slideshow();
+			                return;
+			              }
+			              var image = new Image();
+			              image.src = webp_src.replace(/^http:\/\//i, 'https://'); // Force SSL
+			              image.onerror = slideshow;
+			              image.onload = function () {
+			                $('#viewer').css('background-image', 'url(' + image.src + ')');
+			                interval = setTimeout(slideshow, giphyTVDelay);
+			              };
+			            }).error(function(jqXHR, textStatus, e) { console.log(e); interval = setTimeout(slideshow, 10000);});
+
+			            gifUrl = '//giphy.com/gifs/' + id;
+			        }).error(function(jqXHR, textStatus, e) { console.log(e); interval = setTimeout(slideshow, 10000); });
+			    };
+			    slideshow();
+			  </script>
+	</body>
+</html>
