@@ -1,55 +1,31 @@
 /*
-	Photon by HTML5 UP
+	Lens by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-/* Header */
+/* Thumbnails */
 
-	#header {
-		background-image: none;
-		filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#4fa49a", endColorStr="#4361c2", GradientType=1);
-		position: relative;
+	#thumbnails:after {
+		content: '';
+		display: block;
+		clear: both;
 	}
 
-		#header:before {
-			background-image: url("images/overlay2.png"), url("images/overlay3.svg");
-			background-position: top left,							center center;
-			background-size: auto,								cover;
-			content: '';
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-		#header > * {
-			position: relative;
-			z-index: 1;
-		}
-
-/* Footer */
-
-	#footer {
-		background-image: none;
-		filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#4361c2", endColorStr="#4fa49a", GradientType=1);
-		position: relative;
+	#thumbnails article {
+		float: left;
 	}
 
-		#footer:before {
-			background-image: url("images/overlay2.png"), url("images/overlay4.svg");
-			background-position: top left,							center center;
-			background-size: auto,								cover;
-			content: '';
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
+/* Viewer */
+
+	#viewer .inner {
+		box-shadow: inset 0 0 9em 2em rgba(16, 16, 16, 0.2);
+	}
+
+		#viewer .inner:before {
+			display: none;
 		}
 
-		#footer > * {
-			position: relative;
-			z-index: 1;
-		}
+	#viewer .slide .caption {
+		background-color: rgba(16, 16, 16, 0.5);
+	}
