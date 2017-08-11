@@ -23,3 +23,7 @@ Find the project right here: [http://kxrz.me/GiphyTV/](http://kxrz.me/GiphyTV/)
 This website and project are not associated with Giphy in any way. I just love them for their GIFs.
 
 ![Giphy logo](http://kxrz.me/GiphyTV/images/Poweredby_100px-White_VertLogo.png)
+
+The project has been featured on Product Hunt, thanks a lot friends! ♥
+
+![As Seen On Product Hunt](http://kxrz.me/GiphyTV/images/product_hunt.png)
