@@ -26,4 +26,6 @@ This website and project are not associated with Giphy in any way. I just love t
 
 The project has been featured on Product Hunt, thanks a lot friends! ♥
 
+> [GiphyTV Clone - Create your own GIF powered TV channel!](https://www.producthunt.com/posts/giphytv-clone)
+
 ![As Seen On Product Hunt](http://kxrz.me/GiphyTV/images/product_hunt.png)
